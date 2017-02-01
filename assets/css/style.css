@@ -1,0 +1,33 @@
+.qs-page {
+	width: 100%;
+	min-height: 100%;
+	margin: auto;
+}
+
+.qs-main-nav ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.qs-main-nav__item {
+	display: inline-block;
+}
+
+.qs-main-nav__link {
+	text-decoration: none;
+}
+
+/* Medium. Above 48em (768px) */
+@media screen and (min-width: 48em) {
+	.qs-page {
+		width: 625px;
+	}
+}
+
+/* Large. Above 62em (992px) */
+@media screen and (min-width: 62em) {
+	.qs-page {
+		width: 768px;
+	}
+}

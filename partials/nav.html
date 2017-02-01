@@ -1,0 +1,10 @@
+<nav class="qs-main-nav">
+	<ul>
+		{{ debug this }}
+		{{#collections.navItems}}
+			<li class="qs-main-nav__item {{#equals path ../path}}hi{{/#equals path ../path}}">
+				<a class="qs-main-nav__link" href="/{{ mdToHtml path }}">{{ title }}</a>
+			</li>
+		{{/collections.navItems}}
+	</ul>
+</nav>
