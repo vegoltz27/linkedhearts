@@ -1,10 +1,10 @@
 <nav class="qs-main-nav">
 	<ul>
-		{{ debug this }}
-		{{#collections.navItems}}
-			<li class="qs-main-nav__item">
-				<a class="qs-main-nav__link" href="/{{ mdToHtml path }}">{{ title }}</a>
-			</li>
-		{{/collections.navItems}}
+		<li class="qs-main-nav__item" for(navItem in data.collections.navItems)>
+			<a class={'qs-main-nav__link': true, 'qs-main-nav__link--selected': navItem.path === data.path} 
+				href="/${navItem.path.replace('.md', '.html')}">
+				${navItem.title}
+			</a>
+		</li>
 	</ul>
 </nav>
