@@ -2,7 +2,7 @@
   "name": "linked-hearts-quilting",
   "private": true,
   "scripts": {
-    "build": "node index.js",
+    "build": "rm -rf build && node index.js",
     "serve": "node server.js"
   },
   "dependencies": {

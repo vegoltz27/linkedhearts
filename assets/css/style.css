@@ -101,6 +101,46 @@ a.qs-main-nav__link, a:visited.qs-main-nav__link {
 	margin-right: 20px;
 }
 
+.gallery ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.gallery li {
+	margin: 0 8px 8px 0;
+	padding: 0;
+	font-size: 16px;
+	display: inline-block;
+	width: calc(50% - 6px);
+	padding-bottom: calc(50% - 6px);
+	overflow: hidden;
+	height: 0;
+	position: relative;
+    border: 1px solid #cccccc;
+}
+
+.gallery .pic {
+	position: absolute;
+	left: 5px;
+	right: 5px;
+	top: 5px;
+	bottom: 5px;
+}
+
+.gallery li:nth-of-type(2n) {
+  	margin-right: 0;
+}
+
+.gallery img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background: #ccc;
+  transition: transform .2s ease-in-out;
+}
+
 footer {
 	margin-right: 10px;
 	height: 30px;
@@ -119,11 +159,24 @@ p {
 	.qs-page {
 		width: 625px;
 	}
+
+	.gallery li {
+    	width: calc(25% - 8px);
+    	padding-bottom: calc(25% - 8px);
+	}
+
+	.gallery li:nth-of-type(2n) {
+		margin-right: 8px;
+	}
+
+	.gallery li:nth-of-type(4n) {
+		margin-right: 0;
+	}
 }
 
 /* Large. Above 62em (992px) */
 @media screen and (min-width: 62em) {
 	.qs-page {
-		width: 768px;
+		width: 800px;
 	}
 }

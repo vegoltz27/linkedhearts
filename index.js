@@ -17,6 +17,7 @@ Metalsmith(__dirname)
     generator: "Metalsmith",
     url: "http://www.metalsmith.io/"
   })
+  .use(images( 'gallery/**/*.md' ))
   .use(collections({
     navItems: {
       pattern: '**/index.md'
