@@ -1,6 +1,7 @@
 var Metalsmith  = require('metalsmith');
 var assets      = require('metalsmith-assets');
 var collections = require('metalsmith-collections');
+var copy        = require('metalsmith-copy');
 var marko       = require('marko');
 var images      = require("metalsmith-scan-images");
 var layouts     = require('metalsmith-layouts');
