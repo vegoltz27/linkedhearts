@@ -118,6 +118,7 @@ a.qs-main-nav__link, a:visited.qs-main-nav__link {
 	height: 0;
 	position: relative;
     border: 1px solid #cccccc;
+    cursor: pointer;
 }
 
 .gallery .pic {
@@ -146,8 +147,9 @@ a.qs-main-nav__link, a:visited.qs-main-nav__link {
 	transform: translate(-50%, -50%);
 	top: 50%;
 	left: 50%;
-	width: 80%;
-	height: 80%;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.55);
 }
 
 .fullimg-container.fullimg-container-hidden {
@@ -156,10 +158,17 @@ a.qs-main-nav__link, a:visited.qs-main-nav__link {
 
 .fullimg-container .closebtn {
 	position: absolute;
-	left: 50%;
-	top: 50%;
-	color: #999999;
-	cursor: pointer;
+    left: 50%;
+    top: 50%;
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 9px;
+    width: 16px;
+    height: 16px;
+    background: #FAAA1C;
+    text-align: center;
+    line-height: 15px;
 }
 
 .fullimg-container .closebtn.closebtn-hidden{
@@ -167,8 +176,8 @@ a.qs-main-nav__link, a:visited.qs-main-nav__link {
 }
 
 .fullimg-container .fullimg {
-	max-width: 100%;
-	max-height: 100%;
+	max-width: 80%;
+	max-height: 80%;
 	position: absolute;
 	transform: translate(-50%, -50%);
     top: 50%;
