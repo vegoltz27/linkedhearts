@@ -2,7 +2,7 @@
   "name": "linked-hearts-quilting",
   "private": true,
   "scripts": {
-    "build": "rm -rf build && node index.js",
+    "build": "node scripts/clean.js && node index.js",
     "serve": "node server.js"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "metalsmith-mapsite": "^1.0.4",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-permalinks": "^0.5.0",
-    "metalsmith-scan-images": "0.0.1"
+    "metalsmith-scan-images": "0.0.1",
+    "metalsmith-sharp": "^2.1.1"
   }
 }

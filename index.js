@@ -7,6 +7,7 @@ var images      = require("metalsmith-scan-images");
 var layouts     = require('metalsmith-layouts');
 var markdown    = require('metalsmith-markdown');
 var permalinks  = require('metalsmith-permalinks');
+var sharp       = require('metalsmith-sharp');
 
 Metalsmith(__dirname)
   .clean(false)
@@ -18,6 +19,17 @@ Metalsmith(__dirname)
     generator: "Metalsmith",
     url: "http://www.metalsmith.io/"
   })
+  .use(sharp({
+    src: 'gallery/**/*.jpg',
+    methods: [
+      {
+        name: 'resize',
+        args: [ 800, 800 ]
+      },
+      { name: 'max' }
+    ],
+    moveFile: false
+  }))
   .use(images( 'gallery/**/*.md' ))
   .use(collections({
     navItems: {
