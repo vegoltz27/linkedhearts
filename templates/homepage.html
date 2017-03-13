@@ -2,7 +2,6 @@
 <html lang="en-us">
 	<include("../partials/head.html", data) />
 	<body>
-	<invoke console.log(data)/>
 		<div class="qs-page">
 			<include("../partials/header.html") />
 			<include("../partials/nav.html", data) />
@@ -12,17 +11,14 @@
 				<div class="custom-border-horizontal top"></div>
 				<div class="custom-border-horizontal bottom"></div>
 				$!{data.contents}
-				<div class="gallery">
-				    <ul>
-				        <li for(imageItem in data.gallery)>
-				        	<div class="pic" 
-				        		onclick="onThumbnailClick(event);" 
-				        		data-url="${imageItem}"
-				        		style="background: url(${imageItem}) no-repeat center center; background-size: cover;">
-				        	</div>
-				        </li>
-				    </ul>
-				</div>
+			    <ul class="carousel-container">
+			        <li for(imageItem in data.carousel)>
+			        	<div class="carousel-img" 
+			        		data-url="${imageItem}"
+			        		style="background: url(${imageItem}) no-repeat center center; background-size: cover;">
+			        	</div>
+			        </li>
+			    </ul>
 			</div>
 			<include("../partials/footer.html", data) />
 		</div>

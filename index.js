@@ -3,7 +3,7 @@ var assets      = require('metalsmith-assets');
 var collections = require('metalsmith-collections');
 var copy        = require('metalsmith-copy');
 var marko       = require('marko');
-var images      = require("metalsmith-scan-images");
+var images      = require('./scripts/projectImages');
 var layouts     = require('metalsmith-layouts');
 var markdown    = require('metalsmith-markdown');
 var permalinks  = require('metalsmith-permalinks');
@@ -19,18 +19,20 @@ Metalsmith(__dirname)
     generator: "Metalsmith",
     url: "http://www.metalsmith.io/"
   })
-  .use(sharp({
-    src: 'gallery/**/*.jpg',
-    methods: [
-      {
-        name: 'resize',
-        args: [ 800, 800 ]
-      },
-      { name: 'max' }
-    ],
-    moveFile: false
-  }))
-  .use(images( 'gallery/**/*.md' ))
+  .use(images( [ // add all images to its matching project
+    {
+        pattern: 'gallery/**/*.md',
+        imagesDirectory: '.',
+        imagesKey: 'gallery',
+        relative: true
+    },
+    {
+        pattern: 'index.md',
+        imagesDirectory: '.',
+        imagesKey: 'carousel',
+        relative: true
+    }  
+  ]))
   .use(collections({
     navItems: {
       pattern: '**/index.md'
@@ -49,3 +51,21 @@ Metalsmith(__dirname)
   .build(function(err, files) {
     if (err) { throw err; }
   });
+
+Metalsmith(__dirname)
+  .source('./src')
+  .destination('./build')
+  .use(sharp({
+    src: 'gallery/**/*.jpg',
+    methods: [
+      {
+        name: 'resize',
+        args: [ 800, 800 ]
+      },
+      { name: 'max' }
+    ],
+    moveFile: false
+  }))
+  .build(function(err, files) {
+    if (err) { throw err; }
+  });;
