@@ -6,10 +6,7 @@
 			<include("../partials/header.html") />
 			<include("../partials/nav.html", data) />
 			<div class="qs-page-content">
-				<div class="custom-border-vertical left"></div>
-				<div class="custom-border-vertical right"></div>
-				<div class="custom-border-horizontal top"></div>
-				<div class="custom-border-horizontal bottom"></div>
+				<include("../partials/borders.html") />
 				$!{data.contents}
 			    <ul class="carousel-container">
 			        <li for(imageItem in data.carousel)>

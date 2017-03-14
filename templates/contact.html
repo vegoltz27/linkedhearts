@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<include("../partials/head.html", data) />
+	<body class="contact">
+		<div class="qs-page">
+			<include("../partials/header.html") />
+			<include("../partials/nav.html", data) />
+			<div class="qs-page-content">
+				<include("../partials/borders.html") />
+				$!{data.contents}
+			    <form class="pure-form" action="https://formspree.io/vegoltz@gmail.com">
+			    	<h3>Contact Me!</h3>
+			    	<span class="form-line"><label>First Name </label><input type="text" name="firstname"></span><br/>
+			    	<span class="form-line"><label>Last Name </label><input type="text" name="lastname"></span><br/>
+			    	<span class="form-line"><label>Email </label><input type="email" name="email"></span><br/>
+			    	<span class="form-line"><label>Phone # </label><input type="tel" name="phone"></span><br/><br/>
+			    	<label class="textarea-label">Comments/Quilting Style Requests</label><br/>
+			    	<textarea name="comments" maxlength="500" rows="4"></textarea><br/><br/>
+			    	<input type="submit" value="Submit" />
+			    	<input type="hidden" name="_subject" value="Linked Hearts Contact" />
+			    	<input type="text" name="_gotcha" class="no-viz" />
+			    </form>
+			</div>
+			<include("../partials/footer.html", data) />
+		</div>
+	</body>
+</html>

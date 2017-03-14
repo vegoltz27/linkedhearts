@@ -7,6 +7,47 @@ body {
     background-color: #cccccc;
 }
 
+.contact form.pure-form {
+	background-color: #EEEEEE;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contact .pure-form h3 {
+	margin-top: 0px;
+}
+
+.contact .pure-form .no-viz {
+	display: none;
+}
+
+.contact .pure-form .form-line {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.contact .pure-form label {
+	width: 95px;
+	display: inline-block;
+}
+
+.contact .pure-form .textarea-label {
+	width: initial;
+}
+
+.contact .pure-form textarea {
+	width: 100%;
+}
+
+.contact .pure-form input[type="submit"] {
+	background: #B9B9B9;
+    border: none;
+    padding: 7px;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
 .qs-page {
 	width: 100%;
 	min-height: 100%;
@@ -265,6 +306,10 @@ p {
 @media screen and (min-width: 48em) {
 	.qs-page {
 		width: 625px;
+	}
+
+	.contact .pure-form textarea {
+		width: 70%;
 	}
 
 	.gallery li {
