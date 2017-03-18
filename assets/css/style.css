@@ -7,46 +7,15 @@ body {
     background-color: #cccccc;
 }
 
-.contact form.pure-form {
-	background-color: #EEEEEE;
-    padding: 20px;
-    border-radius: 10px;
+p {
+	margin-top: 0;
 }
 
-.contact .pure-form h3 {
-	margin-top: 0px;
-}
-
-.contact .pure-form .no-viz {
-	display: none;
-}
-
-.contact .pure-form .form-line {
-	display: inline-block;
-	margin-bottom: 5px;
-}
-
-.contact .pure-form label {
-	width: 95px;
-	display: inline-block;
-}
-
-.contact .pure-form .textarea-label {
-	width: initial;
-}
-
-.contact .pure-form textarea {
-	width: 100%;
-}
-
-.contact .pure-form input[type="submit"] {
-	background: #B9B9B9;
-    border: none;
-    padding: 7px;
-    color: black;
-    font-weight: bold;
-    border-radius: 5px;
-}
+/*
+===========================================================
+Page Wrapper
+===========================================================	
+*/
 
 .qs-page {
 	width: 100%;
@@ -121,6 +90,12 @@ body {
 	flex: 1 1 auto;
 }
 
+/*
+===========================================================
+Header
+===========================================================	
+*/
+
 .qs-logo {
 	background-image: url("/assets/img/logo_sm.png");
     width: 150px;
@@ -136,6 +111,12 @@ body {
     left: 140px;
     top: 75px;
 }
+
+/*
+===========================================================
+Main Nav
+===========================================================	
+*/
 
 .qs-main-nav {
 	height: 30px;
@@ -194,15 +175,58 @@ a.qs-main-nav__link, a:visited.qs-main-nav__link {
 	height: 100%;
 }
 
-#bg_img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url(http://placekitten.com/1500/406);
-    background-size: 100% 100%;
+/*
+===========================================================
+Contact
+===========================================================	
+*/
+
+.contact form.pure-form {
+	background-color: #EEEEEE;
+    padding: 20px;
+    border-radius: 10px;
 }
+
+.contact .pure-form h3 {
+	margin-top: 0px;
+}
+
+.contact .pure-form .no-viz {
+	display: none;
+}
+
+.contact .pure-form .form-line {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.contact .pure-form label {
+	width: 95px;
+	display: inline-block;
+}
+
+.contact .pure-form .textarea-label {
+	width: initial;
+}
+
+.contact .pure-form textarea {
+	width: 100%;
+}
+
+.contact .pure-form input[type="submit"] {
+	background: #B9B9B9;
+    border: none;
+    padding: 7px;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/*
+===========================================================
+Gallery
+===========================================================	
+*/
 
 .gallery ul {
 	list-style: none;
@@ -252,7 +276,7 @@ a.qs-main-nav__link, a:visited.qs-main-nav__link {
 	left: 50%;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(255,255,255,0.55);
+	background-color: rgba(255,255,255,0.65);
 }
 
 .fullimg-container.fullimg-container-hidden {
@@ -289,6 +313,12 @@ a.qs-main-nav__link, a:visited.qs-main-nav__link {
     outline: 1px solid #aaaaaa;
 }
 
+/*
+===========================================================
+Footer
+===========================================================	
+*/
+
 footer {
 	margin-right: 10px;
 	height: 30px;
@@ -296,10 +326,6 @@ footer {
 	text-align: right;
 	font-family: 'Merienda', cursive;
 	font-size: 11px;
-}
-
-p {
-	margin-top: 0;
 }
 
 /* Medium. Above 48em (768px) */
