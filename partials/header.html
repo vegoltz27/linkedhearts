@@ -1,12 +1,19 @@
 <header>
-	<div class="custom-border-vertical left"></div>
-	<div class="custom-border-vertical right"></div>
-	<div class="custom-border-horizontal bottom"></div>
-	<div class="qs-logo"></div>
-	<div class="qs-logo-text">Linked<br/>Hearts<br/>Quilting</div>
-	<a class="facebook-link" 
-		href="https://www.facebook.com/Linked-Hearts-Quilting-1314823331934412"
-		target="_blank">
-		<span class="symbol facebook">roundedfacebook</span>
-	</a>
+	<ul class="carousel-container">
+        <li for(imageItem in data.headerCarousel)>
+        	<div class="carousel-img" 
+        		data-url="${imageItem}"
+        		style="background: url(${imageItem}) no-repeat center center; background-size: cover;">
+        	</div>
+        </li>
+    </ul>
+	<div class="topper">
+		<div class="qs-logo"></div>
+		<div class="qs-logo-text">Linked Hearts Quilting</div>
+		<a class="facebook-link" 
+			href="https://www.facebook.com/Linked-Hearts-Quilting-1314823331934412"
+			target="_blank">
+			<span class="symbol facebook">roundedfacebook</span>
+		</a>
+	</div>
 </header>

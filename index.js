@@ -29,9 +29,11 @@ Metalsmith(__dirname)
     {
         pattern: 'index.md',
         imagesDirectory: '.',
-        imagesKey: 'carousel',
-        relative: true
-    }  
+        imagesKey: 'headerCarousel',
+        relative: true,
+        global: true,
+        globalPattern: '**/*.md'
+    }
   ]))
   .use(collections({
     navItems: {

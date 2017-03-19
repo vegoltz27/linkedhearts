@@ -4,10 +4,9 @@
 	<body>
 	<invoke console.log(data)/>
 		<div class="qs-page">
-			<include("../partials/header.html") />
+			<include("../partials/header.html", data) />
 			<include("../partials/nav.html", data) />
 			<div class="qs-page-content">
-				<include("../partials/borders.html") />
 				$!{data.contents}
 				<div class="gallery">
 				    <ul>

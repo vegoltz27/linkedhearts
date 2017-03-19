@@ -5,10 +5,15 @@ html, body {
 body {
 	background-image: url("/assets/img/bg_repeat_sm.png");
     background-color: #cccccc;
+    min-width: 460px;
 }
 
 p {
 	margin-top: 0;
+}
+
+h3 {
+	margin-top: 5px;
 }
 
 /*
@@ -21,35 +26,15 @@ Page Wrapper
 	width: 100%;
 	min-height: 100%;
 	margin: auto;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding: 0;
 	background-color: white;
 	display: flex;
 	flex-direction: column;
 	box-sizing: border-box;
-}
 
-.qs-page > header {
-	height: 175px;
-	border-top: none;
-	position: relative;
-	padding: 8px 15px 20px;
-}
-
-.qs-page > header a.facebook-link {
-	text-decoration: none;
-}
-
-.qs-page > header a.facebook-link:visited {
-	color: #B9B9B9;
-}
-
-.qs-page > header .symbol.facebook {
-	font-size: 45px;
-    color: #B9B9B9;
-    position: absolute;
-    top: 0px;
-    right: 15px;
+	-moz-box-shadow: -1px 0px 20px 0px rgba(40,40,40,0.75);
+	-webkit-box-shadow: -1px 0px 20px 0px rgba(40,40,40,0.75);
+	box-shadow: -1px 0px 20px 0px rgba(40,40,40,0.75);
 }
 
 .qs-page .custom-border-vertical {
@@ -86,8 +71,16 @@ Page Wrapper
 
 .qs-page-content {
 	position: relative;
-	padding: 15px;
+	padding: 25px;
 	flex: 1 1 auto;
+	margin: 0 -2px;
+}
+
+.qs-logo {
+	background-image: url("/assets/img/logo_sm.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
 }
 
 /*
@@ -96,20 +89,54 @@ Header
 ===========================================================	
 */
 
-.qs-logo {
-	background-image: url("/assets/img/logo_sm.png");
-    width: 150px;
-    height: 144px;
-    background-size: contain;
+.qs-page > header {
+    height: 250px;
+	border-top: none;
+	position: relative;
+	margin: 0;
+}
+
+.qs-page > header > .topper {
+	width: 100%;
+	height: 72px;
+    padding: 8px 13px 20px;
+    background-color: rgba(255,255,255,0.90);
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.qs-page > header a.facebook-link {
+	text-decoration: none;
+	width: 40px;
+    height: 40px;
+    display: inline-block;
+    float: right;
+}
+
+.qs-page > header a.facebook-link:visited {
+	color: #B9B9B9;
+}
+
+.qs-page > header .symbol.facebook {
+	font-size: 45px;
+    color: #888888;
+    position: absolute;
+    top: 0px;
+    right: 15px;
+}
+
+.qs-page > header .qs-logo {
+    width: 55px;
+    height: 55px;
+    vertical-align: middle;
 }
 
 .qs-logo-text {
 	font-family: 'Parisienne', cursive;
     color: #696969;
-    position: absolute;
-    font-size: 32px;
-    left: 140px;
-    top: 75px;
+    font-size: 26px;
+    vertical-align: bottom;
+    display: inline-block;
 }
 
 /*
@@ -119,32 +146,77 @@ Main Nav
 */
 
 .qs-main-nav {
-	height: 30px;
+    height: 34px;
+    box-sizing: border-box;
+    background-color: #FAAB2F;
 }
 
 .qs-main-nav ul {
 	margin: 0;
-	padding: 5px 10px;
+	padding: 0 15px;
 	list-style-type: none;
+	height: 100%;
 }
 
 .qs-main-nav__item {
 	display: inline-block;
+	padding: 0px 12px;
+	height: 100%;
+}
+
+.qs-main-nav__item.qs-main-nav__link--selected, .qs-main-nav__item.qs-main-nav__link--selected:hover {
+	background-color: rgba(255,255,255,0.55);
+}
+
+.qs-main-nav__item:hover {
+	background-color: rgba(255,255,255,0.20);
+}
+
+a.qs-main-nav__link:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 
 a.qs-main-nav__link, a:visited.qs-main-nav__link {
 	text-decoration: none;
 	font-family: 'Merienda', cursive;
-	color: #696969;
-	margin-right: 20px;
+	color: #333333;
+	height: 100%;
+	display: inline-block;
 }
 
+/*
+===========================================================
+Footer
+===========================================================	
+*/
+
+footer {
+	padding-right: 10px;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	font-family: 'Merienda', cursive;
+	font-size: 11px;
+	background-color: #FAAB2F;
+}
+
+/*
+===========================================================
+Carousel
+===========================================================	
+*/
+
 .carousel-container {
-	position: relative;
+	position: absolute;
+    height: 100%;
     width: 100%;
+    overflow: hidden;
     margin: 0;
-	padding: 0;
-	list-style-type: none;
+    padding: 0;
+    list-style-type: none;
 }
 
 .carousel-container:after {
@@ -173,6 +245,25 @@ a.qs-main-nav__link, a:visited.qs-main-nav__link {
 .carousel-container .carousel-img {
 	width: 100%;
 	height: 100%;
+}
+
+/*
+===========================================================
+News
+===========================================================	
+*/
+
+.news .qs-page-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.news .qs-page-content .intro {
+	
+}
+
+.news .qs-page-content .fb-insert {
+	text-align: center;
 }
 
 /*
@@ -311,21 +402,6 @@ Gallery
     left: 50%;
     border: 5px solid white;
     outline: 1px solid #aaaaaa;
-}
-
-/*
-===========================================================
-Footer
-===========================================================	
-*/
-
-footer {
-	margin-right: 10px;
-	height: 30px;
-	line-height: 30px;
-	text-align: right;
-	font-family: 'Merienda', cursive;
-	font-size: 11px;
 }
 
 /* Medium. Above 48em (768px) */

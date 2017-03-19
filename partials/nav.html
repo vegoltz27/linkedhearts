@@ -1,7 +1,8 @@
 <nav class="qs-main-nav">
 	<ul>
-		<li class="qs-main-nav__item" for(navItem in data.collections.navItems)>
-			<a class={'qs-main-nav__link': true, 'qs-main-nav__link--selected': navItem.path === data.path} 
+		<li for(navItem in data.collections.navItems)
+			class={'qs-main-nav__item': true, 'qs-main-nav__link--selected': navItem.path === data.path } >
+			<a class={'qs-main-nav__link': true} 
 				href="/${navItem.path.replace('.md', '.html')}">
 				${navItem.title}
 			</a>

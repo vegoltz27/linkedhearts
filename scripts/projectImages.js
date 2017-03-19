@@ -23,64 +23,100 @@ module.exports.getMatchingFiles = getMatchingFiles;
  */
 function plugin(options) {
 
-return function innerFunction(files, metalsmith, done) {
-  setImmediate(done);
+  return function innerFunction(files, metalsmith, done) {
+    setImmediate(done);
 
-  // sane default
-  var optionsArray = [];
+    // sane default
+    var optionsArray = [];
 
-  if (_.isArray(options)) {
-    // multiple options objects
-    optionsArray = options;
-  } else if (_.isObject(options)) {
-    // one options object
-    optionsArray = [options];
+    if (_.isArray(options)) {
+      // multiple options objects
+      optionsArray = options;
+    } else if (_.isObject(options)) {
+      // one options object
+      optionsArray = [options];
+    }
+    _.each(optionsArray, function(optionsItem) {
+      addImagesToFiles(files, metalsmith, done, optionsItem);
+    })
   }
-  _.each(optionsArray, function(optionsItem) {
-    addImagesToFiles(files, metalsmith, done, optionsItem);
-  })
-}
 
-function addImagesToFiles(files, metalsmith, done, options) {
-  // set options
-  options = normalizeOptions(options);
+  function addImagesToFiles(files, metalsmith, done, options) {
+    // set options
+    options = normalizeOptions(options);
 
-  // get matching files
-  var matchingFiles = getMatchingFiles(files, options.pattern);
+    var globalImages = [];
 
-  _.each(matchingFiles, function(file) {
-    if (_.isUndefined(files[file])) return true;
+    // get matching files
+    var matchingFiles = getMatchingFiles(files, options.pattern);
 
-    var imagesPath = path.join(metalsmith.source(), path.dirname(file), options.imagesDirectory);
+    _.each(matchingFiles, function(file) {
+      var imagesPath, imagesInDir, fileObj;
+
+      fileObj = files[file];
+
+      if (_.isUndefined(fileObj)) return true;
+
+      imagesPath = path.join(metalsmith.source(), path.dirname(file), options.imagesDirectory);
+      imagesInDir = getImagesInDir(fileObj, imagesPath, options);
+      
+
+      if(!imagesInDir){
+        console.log('ERROR!!!! NO IMAGES FOUND AT PATH: ' + imagesPath + ' for file: ' + file);
+        return;
+      }
+
+      if(!fileObj[options.imagesKey]){
+        fileObj[options.imagesKey] = [];
+      }
+
+      if(options.global) {
+        globalImages = globalImages.concat(imagesInDir);
+      } else {
+        fileObj[options.imagesKey] = (fileObj[options.imagesKey]).concat(imagesInDir);
+        fileObj[options.imagesKey] = _.uniq(fileObj[options.imagesKey]);
+      }
+    });
+
+    if(options.global) {
+      globalImages = _.uniq(globalImages);
+      addGlobalImages(files, globalImages, options);
+    }
+  };
+
+  function addGlobalImages(files, images, options) {
+    var matchingFiles = getMatchingFiles(files, options.globalPattern);
+    var fileObj;
+    _.each(matchingFiles, function(file) {
+      fileObj = files[file];
+      if (_.isUndefined(fileObj)) return true;
+      fileObj[options.imagesKey] = images;
+    });
+  }
+
+  function getImagesInDir(fileObj, imagesPath, options) {
     var exist = fs.existsSync(imagesPath);
 
     // no access, skip the path
     if (!exist) return;
 
     var dirFiles = fs.readdirSync(imagesPath);
-    files[file][options.imagesKey] = files[file][options.imagesKey] || [];
-
+    var images = [];
+    
     // add files as images metadata
     _.each(dirFiles, function(dirFile) {
       // check extension and remove thumbnails
       if (isAuthorizedFile(dirFile, options.authorizedExts)) {
-        var imagePath = path.join(files[file].path.dir, options.imagesDirectory, dirFile);
-        
-        if (options.relative) {
-          imagePath = path.join(options.imagesDirectory, dirFile);
-        } else {
-          imagePath = path.join(files[file].path.dir, options.imagesDirectory, dirFile);
-        }
+        var imagePath = '/' + path.join(fileObj.path.dir, options.imagesDirectory, dirFile);
 
-        console.log('[' + file + '] + img: ' + imagePath);
+        console.log('[' + fileObj.path.dir + '] + img: ' + imagePath);
 
-        files[file][options.imagesKey].push(imagePath);
+        images.push(imagePath);
       }
     });
 
-    files[file][options.imagesKey] = _.uniq(files[file][options.imagesKey]);
-  });
-};
+    return images;
+  }
 
 }
 
