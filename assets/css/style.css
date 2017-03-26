@@ -462,6 +462,7 @@ Gallery
     	height: 34px;
     	position: relative;
     	display: block;
+    	top: 0;
     }
 
     .qs-main-nav ul {
