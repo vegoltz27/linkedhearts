@@ -16,7 +16,8 @@ function cleanDir(dirPath) {
       var filePath = dirPath + '/' + files[i];
       var isFile = fs.statSync(filePath).isFile();
 
-      if (isFile && files[i] !== '.gitignore') {
+      if (isFile && files[i] !== '.gitignore' && files[i] !== 'CNAME') {
+        console.log('clean file: ' + files[i]);
         fs.unlinkSync(filePath);
       } else if(!isFile && files[i] !== '.git'){
         cleanDir(filePath);
