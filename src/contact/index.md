@@ -1,6 +1,6 @@
 ---
 title: Contact
-date: 2017-01-04
+date: 2017-01-10
 layout: contact.html
 ---
 
@@ -9,4 +9,4 @@ Let’s get the design process started!  Contact me by filling out this form, an
 
 Vicki Goltz  
 Linked Hearts Quilting  
-vegoltz [at] gmail.com
+linkedheartsquilting [at] gmail.com

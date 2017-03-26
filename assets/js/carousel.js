@@ -11,26 +11,27 @@
 
 		var li_item;
 
-		for (i = 0; i < li_count-1; i++){
+		for (i = 0; i < li_count; i++){
 			setListItemClass(i, HIDDEN_CLASS); 
 		}
 
 		if(li_count) {
-			image_index = li_count-1;
+			image_index = Math.floor(Math.random() * (li_count-1));
 			li_item = li_items[image_index];
-			setListItemClass(i, VISIBLE_CLASS); 		
-		
+			setListItemClass(image_index, VISIBLE_CLASS);
+			ul.style.display = 'block';
+
 			setInterval(function() {
 				storeChildren();
 
-				setListItemClass(image_index, HIDDEN_CLASS); 	
+				setListItemClass(image_index, HIDDEN_CLASS);
 
 				image_index++;
 				if(image_index >= li_count){
 					image_index = 0;
 				}
 
-				setListItemClass(image_index, VISIBLE_CLASS); 
+				setListItemClass(image_index, VISIBLE_CLASS);
 
 			}, 6500);
 		}
