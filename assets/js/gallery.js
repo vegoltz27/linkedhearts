@@ -55,12 +55,14 @@ function onThumbnailClick(e){
 function onFullImgLoad(){
 	adjustCloseButtonPosition();
 	window.onresize = adjustCloseButtonPosition;
+	window.onscroll = adjustCloseButtonPosition;
 }
 
 function onCloseFullImgClick(){
 	var lightboxElements = findLightboxElements();
 	lightboxElements.fullImgContainer.className = lightboxClasses.CONTAINER + ' ' + lightboxClasses.CONTAINER_HIDDEN;
 	window.onresize = null;
+	window.onscroll = null;
 }
 
 function adjustCloseButtonPosition(){
@@ -74,6 +76,6 @@ function adjustCloseButtonPosition(){
 			lightboxElements.closeBtn.style.transform = 'translate(' + translateX + 'px, -' + translateY + 'px)';
 			lightboxElements.closeBtn.className = lightboxClasses.CLOSE_BTN;
 			lightboxResizeTimeout = null;
-		}, 75);
+		}, 150);
 	}
 }
