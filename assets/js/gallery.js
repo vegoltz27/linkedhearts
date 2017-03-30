@@ -6,7 +6,11 @@ var lightboxClasses = {
 	CLOSE_BTN_HIDDEN: 'closebtn-hidden'
 };
 
+var lightboxResizeTimeout;
+
 function createLightbox(){
+	var fullImgContainer, fullImg, closeBtn;
+
 	fullImgContainer = document.createElement('div');
 	fullImgContainer.className = lightboxClasses.CONTAINER;
 
@@ -49,20 +53,27 @@ function onThumbnailClick(e){
 }
 
 function onFullImgLoad(){
+	adjustCloseButtonPosition();
+	window.onresize = adjustCloseButtonPosition;
+}
+
+function onCloseFullImgClick(){
+	var lightboxElements = findLightboxElements();
+	lightboxElements.fullImgContainer.className = lightboxClasses.CONTAINER + ' ' + lightboxClasses.CONTAINER_HIDDEN;
+	window.onresize = null;
+}
+
+function adjustCloseButtonPosition(){
 	var lightboxElements = findLightboxElements();
 	var translateX, translateY;
 
-	if(closeBtn && fullImg){
-		setTimeout(function() {
+	if(!lightboxResizeTimeout && lightboxElements.closeBtn && lightboxElements.fullImg){
+		lightboxResizeTimeout = setTimeout(function() {
 			translateX = Math.floor(lightboxElements.fullImg.width/2 - 4);
 			translateY = Math.floor(lightboxElements.fullImg.height/2 + 16);
 			lightboxElements.closeBtn.style.transform = 'translate(' + translateX + 'px, -' + translateY + 'px)';
 			lightboxElements.closeBtn.className = lightboxClasses.CLOSE_BTN;
-		}, 100);
+			lightboxResizeTimeout = null;
+		}, 75);
 	}
-}
-
-function onCloseFullImgClick(){
-	lightboxElements = findLightboxElements();
-	lightboxElements.fullImgContainer.className = lightboxClasses.CONTAINER + ' ' + lightboxClasses.CONTAINER_HIDDEN;
 }
