@@ -63,6 +63,7 @@ function onCloseFullImgClick(){
 	lightboxElements.fullImgContainer.className = lightboxClasses.CONTAINER + ' ' + lightboxClasses.CONTAINER_HIDDEN;
 	window.onresize = null;
 	window.onscroll = null;
+	clearTimeout(lightboxResizeTimeout);
 }
 
 function adjustCloseButtonPosition(){
