@@ -23,6 +23,7 @@
     "metalsmith-project-images": "^1.1.2",
     "metalsmith-scan-images": "0.0.1",
     "metalsmith-sharp": "^2.1.1",
-    "minimatch": "^0.2.14"
+    "minimatch": "^0.2.14",
+    "normalize-path": "^2.1.1"
   }
 }
