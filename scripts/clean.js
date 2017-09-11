@@ -22,6 +22,7 @@ function cleanDir(dirPath) {
         console.log('clean file: ' + files[i]);
         fs.unlinkSync(filePath);
       } else if(!isFile && files[i] !== '.git'){
+        console.log('clean dir: ' + files[i]);
         cleanDir(filePath);
         fs.rmdirSync(filePath);
       }

@@ -55,6 +55,7 @@ Metalsmith(__dirname)
   });
 
 Metalsmith(__dirname)
+  .clean(false)
   .source('./src')
   .destination('./build')
   .use(sharp({
