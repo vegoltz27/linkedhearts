@@ -4,7 +4,9 @@ var debug = require('debug')('metalsmith-paths'),
     path = require('path'),
     fs = require("fs"),
     matcher = require('minimatch'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    normalizePath = require('normalize-path')
+;
 
 
 // Expose `plugin`.
@@ -108,6 +110,8 @@ function plugin(options) {
       // check extension and remove thumbnails
       if (isAuthorizedFile(dirFile, options.authorizedExts)) {
         var imagePath = '/' + path.join(fileObj.path.dir, options.imagesDirectory, dirFile);
+        imagePath = normalizePath(imagePath);
+        imagePath = imagePath.replace('\\', '/');
 
         console.log('[' + fileObj.path.dir + '] + img: ' + imagePath);
 
