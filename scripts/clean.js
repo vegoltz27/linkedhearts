@@ -2,8 +2,9 @@ var fs = require('fs');
 
 function cleanDir(dirPath) {
   var files;
+  var isWin = /^win/.test(process.platform);
 
-  console.log(dirPath);
+  console.log('cleaning: ' + dirPath);
 
   try { 
     files = fs.readdirSync(dirPath); 
@@ -13,7 +14,8 @@ function cleanDir(dirPath) {
 
   if (files.length > 0) {
     for (var i = 0; i < files.length; i++) {
-      var filePath = dirPath + '/' + files[i];
+      var filePathDelimiter = isWin ? '\\' : '/';
+      var filePath = dirPath + filePathDelimiter + files[i];
       var isFile = fs.statSync(filePath).isFile();
 
       if (isFile && files[i] !== '.gitignore' && files[i] !== 'CNAME') {

@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "node scripts/clean.js && node index.js",
+    "clean": "node scripts/clean.js",
     "serve": "node server.js"
   },
   "dependencies": {
